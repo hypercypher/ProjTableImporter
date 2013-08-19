@@ -19,6 +19,7 @@ namespace TableImporter
     {
         static void Main(string[] args)
         {
+            // TESTING lolcommits
             Console.WriteLine("Enter file name: ");
             string filename = Console.ReadLine().ToString();
             FileInfo fi = new FileInfo(string.Format("C:\\users\\hycy_tabby\\Databases\\{0}.txt",filename));
