@@ -19,7 +19,7 @@ namespace TableImporter
     {
         static void Main(string[] args)
         {
-            // TESTING Commit into GITHUB 22222222
+            // TESTING Commit into GITHUB 3333333
             Console.WriteLine("Enter file name: ");
             string filename = Console.ReadLine().ToString();
             FileInfo fi = new FileInfo(string.Format("C:\\users\\hycy_tabby\\Databases\\{0}.txt",filename));
