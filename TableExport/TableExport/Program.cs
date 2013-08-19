@@ -31,7 +31,7 @@ namespace TableImporter
             string[] columnCollection;
             string[] rowCollection;
  
-            string tableName = "table3";
+            string tableName = "table4";
             StringBuilder sbCreateTable = new StringBuilder();
             StringBuilder sbInsertTable = new StringBuilder();
             StringBuilder sbInsertTableValues = new StringBuilder();
@@ -107,6 +107,7 @@ namespace TableImporter
             try
             {
                 comm.ExecuteNonQuery();
+                Console.WriteLine(query);
             }
             catch (OleDbException exp)
             {
