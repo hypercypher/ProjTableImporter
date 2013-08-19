@@ -11,7 +11,7 @@ using System.IO;
  * It builds the insertstatement dynamically when it parses through the file and appends it to a stringbuilder object.
  * Caveats: Currently cannot handle rows with missing field values.
  * Also, current version inserts one row at at time and is very time consuming. (Open connection, insert, close, repeat).
- * To Fix: oledbconnection exception.. inserting into table fails
+ * To Add: oledbconnection exception handler to handle inserting a row with missing fields.
  */
 namespace TableImporter
 {
@@ -31,7 +31,7 @@ namespace TableImporter
             string[] columnCollection;
             string[] rowCollection;
  
-            string tableName = "table1";
+            string tableName = "table3";
             StringBuilder sbCreateTable = new StringBuilder();
             StringBuilder sbInsertTable = new StringBuilder();
             StringBuilder sbInsertTableValues = new StringBuilder();
@@ -64,7 +64,7 @@ namespace TableImporter
             sbInsertTable.Append(") VALUES (");
 
             // create table
-            // executeNonQuery(conn, sbCreateTable.ToString());
+            executeNonQuery(conn, sbCreateTable.ToString());
 
             // generate insert statement 
             rowCollection = fullText.Split('\n');
@@ -95,9 +95,7 @@ namespace TableImporter
                 sbInsertStatement.Clear();
                 
             }
-            // insert values into table
-            executeNonQuery(conn, sbInsertStatement.ToString());
-
+            
             // exit gracefully
             conn.Close();
         }
